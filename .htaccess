@@ -1,0 +1,33 @@
+RewriteEngine On
+RewriteBase /webshop/
+
+# Enable rewriting
+Options +FollowSymLinks
+
+# Redirect root and home to home/index.php
+RewriteRule ^$ views/home/index.php [L]
+RewriteRule ^home/?$ views/home/index.php [L]
+RewriteRule ^home/index/?$ views/home/index.php [L]
+
+# Handle specific routes
+RewriteRule ^menu/?$ views/menu/index.php [L]
+RewriteRule ^cart/?$ views/cart/cart.php [L]
+RewriteRule ^checkout/?$ views/cart/checkout.php [L]
+RewriteRule ^login/?$ views/auth/login.php [L]
+RewriteRule ^register/?$ views/auth/register.php [L]
+RewriteRule ^dashboard/?$ views/dashboard/dashboard.php [L]
+RewriteRule ^reserveer/?$ views/reservation/reserveer.php [L]
+RewriteRule ^confirm-reservation/?$ views/reservation/confirm_reservation.php [L]
+
+# Handle GET parameters
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?\?(.*)$ views/$1/index.php?$2 [L,QSA]
+
+# Handle PHP files in views directory without showing views in URL
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/([^/]+)/?$ views/$1/$2.php [L]
+
+# Prevent directory listing
+Options -Indexes 
