@@ -87,8 +87,7 @@ Dit project voldoet aan de volgende portfolio-examenopdrachten:
 
 ## Auteur
 
-[Jouw Naam]
-
+Ryan Sutrisno   
 ---
 
-© 2023 Restaurant Webshop | Portfolio-examen Software Developer 
+© 2025 Restaurant Webshop | Portfolio-examen Software Developer 
